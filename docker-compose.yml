@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./whisperfy-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./whisperfy-backend:/app
+    environment:
+      - ENV_VAR=value
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+    container_name: "sonicscript-redis"
+    ports:
+      - "6379:6379"

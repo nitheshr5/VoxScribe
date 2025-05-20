@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+whisperfy-backend/firebase/serviceAccountKey.json
+

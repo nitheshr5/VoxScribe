@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./whisperfy-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./whisperfy-backend:/app
+    environment:
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      FRONTEND_SUCCESS_URL: ${FRONTEND_SUCCESS_URL}
+      FRONTEND_CANCEL_URL: ${FRONTEND_CANCEL_URL}
+    env_file:
+      - .env.local
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: sonicscript-redis
+    ports:
+      - "6379:6379"

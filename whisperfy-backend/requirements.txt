@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+openai-whisper
+requests
+pydantic
+python-multipart
+stripe
+python-dotenv
+firebase-admin
